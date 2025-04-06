@@ -11,14 +11,14 @@ pipeline {
 
         stage('docker build image'){
             steps{
-                sh ' docker build -t awsli/docker-automation:v1 . '
+                sh ' docker build -t awslinux88/docker-automation:v1 . '
             }
         }
 
         stage('docker push image to docker hub'){
             steps{
                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
-                 sh ' docker push awsli/docker-automation:v1 '
+                 sh ' docker push awslinux88/docker-automation:v1 '
                 }
                 
             }
